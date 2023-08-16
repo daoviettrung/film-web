@@ -20,25 +20,27 @@
             </div>
             <div class="row">
               <div
-                v-for="(item, index) in this.items"
+                v-for="(item, index) in this.items.data"
                 class="col-lg-4 col-md-6 col-sm-6"
               >
                 <div class="product__item">
                   <div
                     class="product__item__pic set-bg"
-                    data-setbg="{{ item.thumb_url }}"
+                    :style="{
+                      'background-image': 'url(' + item.thumb_url + ')',
+                    }"
                   >
                     <div class="ep">18 / 18</div>
-                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                    <div class="view">
+                      <i class="fa fa-eye"></i> {{ item.view }}
+                    </div>
                   </div>
                   <div class="product__item__text">
                     <ul>
-                      <li>Active</li>
-                      <li>Movie</li>
+                      <li>{{ item.name }}</li>
                     </ul>
                     <h5>
-                      <a href="#">The Seven Deadly Sins: Wrath of the Gods</a>
+                        <router-link :to="'/detail/' + item.id">{{ item.origin_name }}</router-link>
                     </h5>
                   </div>
                 </div>
@@ -207,7 +209,7 @@ export default {
     axios
       .get(`http://localhost:8000/api`, {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjkyMDA5NzYyLCJleHAiOjE2OTIwMTMzNjIsIm5iZiI6MTY5MjAwOTc2MiwianRpIjoiTEhCR1lvSDVvR3hJdTcxWSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.EljaAicv0lj9ywYojqBnc4q9V8NaxVZVcz20HVnGNfQ`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjkyMTU2MzEwLCJleHAiOjE2OTIxNTk5MTAsIm5iZiI6MTY5MjE1NjMxMCwianRpIjoieGtqY2E5T3Q3TXBIdDkyaCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.j9F4g_ge-bqBt3t26KqKAxWHKng9om6MFuOEv39XyIo`,
         },
       })
       .then((response) => {

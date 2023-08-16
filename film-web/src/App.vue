@@ -9,7 +9,6 @@ import Body from './views/layout/Body.vue'
       <Header/>
       <Body/>
 </body>
-
 </template>
 
 
