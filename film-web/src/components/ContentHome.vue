@@ -37,7 +37,7 @@
                   </div>
                   <div class="product__item__text">
                     <ul>
-                      <li>{{ item.name }}</li>
+                      <li>{{ item.cateName }}</li>
                     </ul>
                     <h5>
                         <router-link :to="'/detail/' + item.id">{{ item.origin_name }}</router-link>
@@ -209,7 +209,7 @@ export default {
     axios
       .get(`http://localhost:8000/api`, {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjkyMTU2MzEwLCJleHAiOjE2OTIxNTk5MTAsIm5iZiI6MTY5MjE1NjMxMCwianRpIjoieGtqY2E5T3Q3TXBIdDkyaCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.j9F4g_ge-bqBt3t26KqKAxWHKng9om6MFuOEv39XyIo`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjkyMTYwODI1LCJleHAiOjE2OTIxNjQ0MjUsIm5iZiI6MTY5MjE2MDgyNSwianRpIjoiRE9xc05DV1labkRBZXJWWiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TQyYVyYSlYKYA1IwI8xWcW013nAGfH7L47aFqosn_DQ`,
         },
       })
       .then((response) => {
