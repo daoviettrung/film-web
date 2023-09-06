@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DetailFilm from '../components/DetailFilm.vue'
 import Home from '../components/ContentHome.vue'
+import Login from '../components/Login.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,11 @@ const router = createRouter({
     {
       path: '/detail/:id',
       component: DetailFilm, // Thay thế bằng tên component của trang chi tiết
+      props: true,
+    },
+    {
+      path: '/login',
+      component: Login, // Thay thế bằng tên component của trang chi tiết
       props: true,
     }
   ]
